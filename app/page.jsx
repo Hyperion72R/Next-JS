@@ -4,9 +4,17 @@ export default async function Home() {
   );
   const res = await data.json();
   console.log(res);
+
   return (
     <main>
-      <h1>Hello next 13 💥</h1>
+      <h1 className="">Hello next 13 💥</h1>
+      {res.results.map((movie) => (
+        <div>
+          <h1>
+            <b>{movie.title}</b> Rating: {movie.vote_average}
+          </h1>
+        </div>
+      ))}
     </main>
   );
 }
