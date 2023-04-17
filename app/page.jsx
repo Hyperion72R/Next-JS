@@ -1,3 +1,5 @@
+import Movie from "./about/Movie";
+
 export default async function Home() {
   const data = await fetch(
     `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}`
@@ -9,11 +11,13 @@ export default async function Home() {
     <main>
       <h1 className="">Hello next 13 💥</h1>
       {res.results.map((movie) => (
-        <div>
-          <h1>
-            <b>{movie.title}</b> Rating: {movie.vote_average}
-          </h1>
-        </div>
+        <Movie
+          key={movie.id}
+          id={movie.id}
+          title={movie.title}
+          poster_path={movie.poster_path}
+          release_date={movie.release_date}
+        />
       ))}
     </main>
   );
