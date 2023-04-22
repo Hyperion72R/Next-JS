@@ -1,4 +1,4 @@
-import Movie from "./about/Movie";
+import Movie from "./Movie";
 
 export default async function Home() {
   const data = await fetch(
@@ -10,15 +10,17 @@ export default async function Home() {
   return (
     <main>
       <h1 className="">Hello next 13 💥</h1>
-      {res.results.map((movie) => (
-        <Movie
-          key={movie.id}
-          id={movie.id}
-          title={movie.title}
-          poster_path={movie.poster_path}
-          release_date={movie.release_date}
-        />
-      ))}
+      <div className="grid gap-16 grid-cols-fluid">
+        {res.results.map((movie) => (
+          <Movie
+            key={movie.id}
+            id={movie.id}
+            title={movie.title}
+            poster_path={movie.poster_path}
+            release_date={movie.release_date}
+          />
+        ))}
+      </div>
     </main>
   );
 }
