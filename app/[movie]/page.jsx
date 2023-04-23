@@ -1,21 +1,17 @@
-import Movie from "../Movie";
-
 import Image from "next/image";
-export default function MovieDetail({ title, id, poster_path, release_date }) {
+export default async function MovieDetail({ params }) {
+  console.log(params);
+  const { movie } = params;
   const imagePath = "https://image.tmdb.org/t/p/original";
+
+  const data = await fetch(
+    `https://api.themoviedb.org/3/movie/${movie}?api_key=${process.env.API_KEY}`
+  );
+
+  const res = await data.json();
   return (
     <div>
-      <h1>Movie detail</h1>
-
-      <Image
-        src={imagePath + poster_path}
-        width={600}
-        height={600}
-        alt={title}
-        quality={100}
-        unoptimized={true}
-        priority
-      />
+      <h2 className="text-2xl">{res.title}</h2>
     </div>
   );
 }
