@@ -9,9 +9,12 @@ export default async function MovieDetail({ params }) {
   );
 
   const res = await data.json();
+
+  console.log(res);
   return (
     <div>
       <h2 className="text-2xl">{res.title}</h2>
+      <h1>{res.genres[3].id}</h1>
     </div>
   );
 }
