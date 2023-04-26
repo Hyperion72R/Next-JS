@@ -19,6 +19,16 @@ export default async function MovieDetail({ params }) {
       <h2 className="text-sm bg-green-600 inline-block my-2 py-2 px-4 rounded">
         {res.status}
       </h2>
+      <Image
+        className="my-12 w-full"
+        src={imagePath + res.backdrop_path}
+        width={1000}
+        height={1000}
+        quality={100}
+        unoptimized={true}
+        priority
+      ></Image>
+      <p>{res.overview}</p>
     </div>
   );
 }
