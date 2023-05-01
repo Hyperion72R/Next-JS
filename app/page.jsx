@@ -9,7 +9,7 @@ export default async function Home() {
 
   return (
     <main>
-      <h1 className="">Hello next 13 💥</h1>
+      <h1 className="text-2xl mb-3">Hello Next 13 💥</h1>
       <div className="grid gap-16 grid-cols-fluid">
         {res.results.map((movie) => (
           <Movie
